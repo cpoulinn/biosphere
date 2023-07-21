@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">   
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
+    </style>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js">
+    </script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
+    </script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   text-align: center;
+   background-color:#020f2b;	
+}
+
+* {
+  box-sizing: border-box;
+}
+  
+.menu {
+  float: left;
+  width: 20%;
+  text-align: center;
+}
+
+.menu a {
+  background-color: #F4EBD9;
+  padding: 10px;
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  color: #020F2B;
+}
+
+.main {
+  float: left;
+  width: 60%;
+  padding: 0 20px;
+  height: 500;
+  min-height: 100%;
+  }
+
+.right {
+  float: left;
+  width: 20%;
+  padding: 15px;
+  margin-top: 7px;
+  text-align: center;
+}
+	
+h1 {
+  font-size: 1.5em;
+}
+	
+@media only screen and (max-width: 620px) {
+  /* For desktops: */
+  .menu, .main, .right {
+    width: 100%;
+    }
+  .QRcode {
+  	visibility: hidden;
+    float: right;
+  	width: 60%;
+  	padding: 20 20px;
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 621px) {
+  /* For mobile phones: */
+  .here {
+  	visibility: hidden;
+    float: right;
+  	width: 60%;
+  	padding: 20 20px;
+    display: none;
+  }
+}
+	
+a:link,a:visited {
+    color: #020F2B;  
+    }
+    a:hover {
+	background-color:#BEE7E8;
+    } 
+}
+ 
+.model-viewer::part(default-ar-button) {
+   transform: scale(3);
+    }  
+
+</style>
+</head>
+<body style="font-family:Inconsolata;color:#058ED9;background-color:#020f2b;">
+
+<div style="background-color:#058ED9;color:#020f2b;padding:5px;text-align:center;">
+  <h1>View NASA's Aqua Satellite in Augmented Reality</h1>
+</div>
+
+<div style="overflow:auto">
+  <div class="menu">
+    <a href="https://cpoulinn.github.io/AR-Demo/no-annotations">View without annotations</a>
+    <a href="https://sketchfab.com/3d-models/aqua-satellite-wWmEeEeS71I2eX4PS281MUMK3B5">Original 3D model by NASA</a>
+  </div>
+  
+  <div class="main">
+    <model-viewer
+    style="width: 100%; height: 380px; top: 0px;"
+    data-name="Satellite_improved_text"
+    src="files/aqua2.glb"
+    ar
+    ar-modes="scene-viewer quick-look"
+    camera-controls
+    camera-orbit="80deg 80deg 2.5m"  
+    auto-rotate
+    loading="eager"
+    poster="files/pic1.png"
+    ></model-viewer>
+  </div>
+  
+
+  <div class="right">
+    
+<div class="QRcode"><p><img src="files/frame.png" alt="QR Code" style="width:150px; float:none;" ></p><p style="color:#BEE7E8; font-size:1.5em;">SCAN ME</p><p>Use your phone for the augmented reality experience</p></div>
+  </div>
+
+<div class="here"><p style="text-align: right; padding-right: 50px;font-size: 1.25em; font-weight: 900;">Try me in AR ↑</p></div>
+  </div>
+<div class="footer"><p style="font-size: .7em;">Carina Poulin 2022</p></div>
+
+</body>
+</html>
