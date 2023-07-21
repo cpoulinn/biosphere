@@ -127,8 +127,8 @@ a:link,a:visited {
     camera-orbit="80deg 80deg 2.5m"  
     auto-rotate
     loading="eager"
-    ></model-viewer>
-    <model-viewer id="animated" camera-controls touch-action="pan-y" src="../../shared-assets/models/sphere.glb" ar alt="A 3D model of a duck">
+    >
+    
   <div class="controls">
     <p>Texture Type</p>
     <select id="type">
@@ -165,7 +165,7 @@ function getCanvasTexture() {
 
 function getLottieTexture() {
   if(lottieTexture) return lottieTexture;
-  lottieTexture = modelViewerAnimated.createLottieTexture("../../shared-assets/models/24017-lottie-logo-animation.json", 2);
+  lottieTexture = modelViewerAnimated.createLottieTexture("files/biosphere_short.mp4", 2);
   return lottieTexture;
 }
 
