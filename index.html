@@ -102,19 +102,6 @@ a:link,a:visited {
     }  
 
 </style>
-<script async src="https://ga.jspm.io/npm:es-module-shims@1.6.3/dist/es-module-shims.js"></script>
-
-<script type="importmap-shim">
-
-{
-  "imports": {
-    "three": "https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
-  }
-}
-
-</script>
-
-<script type="module-shim" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body style="font-family:Inconsolata;color:#058ED9;background-color:#020f2b;">
 
@@ -140,8 +127,8 @@ a:link,a:visited {
     camera-orbit="80deg 80deg 2.5m"  
     auto-rotate
     loading="eager"
-    >
-    
+    ></model-viewer>
+    <model-viewer id="animated" camera-controls touch-action="pan-y" src="../../shared-assets/models/sphere.glb" ar alt="A 3D model of a duck">
   <div class="controls">
     <p>Texture Type</p>
     <select id="type">
@@ -159,7 +146,7 @@ let canvasTexture = null;
 let lottieTexture = null;
 
 customElements.whenDefined('model-viewer').then(() => {
-  videoTexture = modelViewerAnimated.createVideoTexture("files/biosphere_short.mp4");
+  videoTexture = modelViewerAnimated.createVideoTexture("https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005006/newbio_v34_1000p30.mp4");
 });
 
 function getCanvasTexture() {
@@ -178,7 +165,7 @@ function getCanvasTexture() {
 
 function getLottieTexture() {
   if(lottieTexture) return lottieTexture;
-  lottieTexture = modelViewerAnimated.createLottieTexture("files/biosphere_short.mp4", 2);
+  lottieTexture = modelViewerAnimated.createLottieTexture("../../shared-assets/models/24017-lottie-logo-animation.json", 2);
   return lottieTexture;
 }
 
