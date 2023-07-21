@@ -138,60 +138,7 @@ a:link,a:visited {
     </select>
   </div>
 </model-viewer>
-<script type="module">
-const modelViewerAnimated = document.querySelector("model-viewer#animated");
 
-let videoTexture = null;
-let canvasTexture = null;
-let lottieTexture = null;
-
-customElements.whenDefined('model-viewer').then(() => {
-  videoTexture = modelViewerAnimated.createVideoTexture("https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005006/newbio_v34_1000p30.mp4");
-});
-
-function getCanvasTexture() {
-  if(canvasTexture) return canvasTexture;
-  canvasTexture = modelViewerAnimated.createCanvasTexture();
-  const canvas = canvasTexture.source.element;
-  canvas.width = 1600;
-  canvas.height = 800;
-  const ctx = canvas.getContext('2d');
-  ctx.font = "250px sans-serif";
-  ctx.fillStyle = "#aaa";
-  ctx.fillText('Canvas 2D!', 0, 400);
-  canvasTexture.source.update();
-  return canvasTexture;
-}
-
-function getLottieTexture() {
-  if(lottieTexture) return lottieTexture;
-  lottieTexture = modelViewerAnimated.createLottieTexture("../../shared-assets/models/24017-lottie-logo-animation.json", 2);
-  return lottieTexture;
-}
-
-modelViewerAnimated.addEventListener("load", async () => {
-
-  const material = modelViewerAnimated.model.materials[0];
-  const {baseColorTexture} = material.pbrMetallicRoughness;
-
-  baseColorTexture.setTexture(await getLottieTexture());
-
-  document.querySelector('#type').addEventListener('input', async (event) => {
-    switch(event.target.value){
-      case "video":
-        baseColorTexture.setTexture(videoTexture);
-        break;
-      case "canvas":
-        baseColorTexture.setTexture(getCanvasTexture());
-        break;
-      case "lottie":
-        baseColorTexture.setTexture(await getLottieTexture());
-        break;
-    }
-  });
-});
-
-</script>
   </div>
   
 
